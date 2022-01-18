@@ -2,6 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
+## Useful
+
+* [Example project tutorial](https://angular.io/tutorial)
+* [Angular Material guide](https://material.angular.io/guide/getting-started)
+
 ## Style guide
 Run `ng lint` to check code style. Based on [Angular coding style guide](https://angular.io/guide/styleguide).
 
