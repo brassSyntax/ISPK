@@ -1,0 +1,23 @@
+<h2>
+  Study Programs
+</h2>
+
+<mat-accordion class="example-headers-align">
+  <mat-expansion-panel *ngFor="let program of studyPrograms">
+    <mat-expansion-panel-header>
+      <mat-panel-title> {{program.name}} </mat-panel-title>
+      <mat-panel-description> {{program.id}} </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>{{program}}</p>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<!--TODO: use this for input form or delete it-->
+<!--<h2>{{studyPrograms[0].name | uppercase}} Details</h2>-->
+<!--<div><span style="color:red">id: </span>{{studyPrograms[0].id}}</div>-->
+<!--<div><span style="color:red">name: </span>{{studyPrograms[0].name}}</div>-->
+
+<!--<div>-->
+<!--  <label for="name">Study Program: </label>-->
+<!--  <input id="name" [(ngModel)]="studyPrograms[0].name" placeholder="name">-->
+<!--</div>-->
