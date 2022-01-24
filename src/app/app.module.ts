@@ -9,11 +9,13 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {MatListModule} from "@angular/material/list";
+import { ReviewDisplayComponent } from './review-display/review-display.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StudyProgramDisplayComponent
+    StudyProgramDisplayComponent,
+    ReviewDisplayComponent
   ],
   imports: [
     BrowserModule,

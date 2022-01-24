@@ -14,6 +14,12 @@ export class StudyProgramDisplayComponent implements OnInit {
 
   constructor() { }
 
+  isReviewsEmpty(index: number): boolean {
+    let revs = this.studyPrograms[index].reviews;
+
+    return (typeof revs === undefined || revs!.length <= 0);
+  }
+
   ngOnInit(): void {
     this.studyPrograms.forEach(program => {
       program.reviews = this.reviews.filter(review => review.key === program.id);
