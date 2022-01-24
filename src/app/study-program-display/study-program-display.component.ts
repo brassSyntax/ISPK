@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StudyProgram } from "../studyProgram";
-import {STUDY_PROGRAMS} from "../mock-data";
+import {REVIEWS, STUDY_PROGRAMS} from "../mock-data";
+import {Review} from "../review";
 
 @Component({
   selector: 'app-study-program-display',
@@ -9,10 +10,14 @@ import {STUDY_PROGRAMS} from "../mock-data";
 })
 export class StudyProgramDisplayComponent implements OnInit {
   studyPrograms: StudyProgram[] = STUDY_PROGRAMS;
+  reviews: Review[] = REVIEWS;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.studyPrograms.forEach(program => {
+      program.reviews = this.reviews.filter(review => review.key === program.id);
+    });
   }
 
 }

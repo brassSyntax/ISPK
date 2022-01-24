@@ -8,7 +8,27 @@
       <mat-panel-title> {{program.name}} </mat-panel-title>
       <mat-panel-description> {{program.id}} </mat-panel-description>
     </mat-expansion-panel-header>
-    <p>{{program}}</p>
+
+    <mat-card>
+      <mat-card-title>About</mat-card-title>
+      <mat-card-content>Ipsum sapiente enim possimus assumenda veniam doloribus occaecati. Doloremque qui iusto dolores ipsam laboriosam voluptatum eius soluta. Quaerat beatae ea perferendis alias aliquid voluptatum. Qui assumenda et aspernatur quo sed explicabo. Aut voluptate error suscipit.</mat-card-content>
+      <mat-card-subtitle>Rating: 1/5</mat-card-subtitle>
+      <mat-card-actions>
+        <button mat-button>Details</button>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-title>Reviews</mat-card-title>
+      <mat-list>
+        <ng-container *ngFor="let review of program.reviews; let i=index">
+          <mat-divider *ngIf="i != 0"></mat-divider>
+          <mat-list-item>
+            {{review.content}}
+          </mat-list-item>
+        </ng-container>
+      </mat-list>
+    </mat-card>
   </mat-expansion-panel>
 </mat-accordion>
 

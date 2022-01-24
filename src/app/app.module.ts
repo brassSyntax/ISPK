@@ -6,6 +6,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {StudyProgramDisplayComponent} from "./study-program-display/study-program-display.component";
 import {FormsModule} from "@angular/forms";
 import {MatExpansionModule} from "@angular/material/expansion";
+import {MatCardModule} from "@angular/material/card";
+import {MatButtonModule} from "@angular/material/button";
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import {MatExpansionModule} from "@angular/material/expansion";
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatCardModule,
+    MatButtonModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
