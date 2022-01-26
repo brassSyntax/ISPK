@@ -10,12 +10,18 @@ import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {MatListModule} from "@angular/material/list";
 import { ReviewDisplayComponent } from './review-display/review-display.component';
+import {AppRoutingModule} from "./app.routing-module";
+import { ReviewInputFormComponent } from './review-input-form/review-input-form.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
     AppComponent,
     StudyProgramDisplayComponent,
-    ReviewDisplayComponent
+    ReviewDisplayComponent,
+    ReviewInputFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +30,11 @@ import { ReviewDisplayComponent } from './review-display/review-display.componen
     MatExpansionModule,
     MatCardModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule,
+    AppRoutingModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
