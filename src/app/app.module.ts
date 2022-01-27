@@ -15,6 +15,7 @@ import { ReviewInputFormComponent } from './review-input-form/review-input-form.
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {MatInputModule} from "@angular/material/input";
     MatDialogModule,
     AppRoutingModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
