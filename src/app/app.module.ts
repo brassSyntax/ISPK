@@ -16,6 +16,11 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import { LoginFormComponent } from './login-form/login-form.component';
+import {MatIconModule} from "@angular/material/icon";
+import { ContactSupportComponent } from './contact-support/contact-support.component';
+import { DialogContactSupportComponent } from './dialog-contact-support/dialog-contact-support.component';
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -23,6 +28,10 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     StudyProgramDisplayComponent,
     ReviewDisplayComponent,
     ReviewInputFormComponent,
+    ReviewDisplayComponent,
+    LoginFormComponent,
+    ContactSupportComponent,
+    DialogContactSupportComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +45,9 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     AppRoutingModule,
     MatFormFieldModule,
     MatInputModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
