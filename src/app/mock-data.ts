@@ -1,5 +1,6 @@
 import { StudyProgram } from "./studyProgram";
 import {Review} from "./review";
+import {Login} from "./login";
 
 export const STUDY_PROGRAMS: StudyProgram[] = [
   { id: 1, name: 'Bioengineering' },
@@ -15,4 +16,10 @@ export const REVIEWS: Review[] = [
   { id: 1, key: 1, content: 'I like very good, yes'},
   { id: 2, key: 1, content: 'I don\'t like very bad, no'},
   { id: 3, key: 2, content: 'Is  ok'}
+];
+
+export const LOGIN: Login[] = [
+  { id: 1, login: "admin", password: "admin"},
+  { id: 1, login: "student", password: "student"},
+  { id: 1, login: "uni", password: "uni"},
 ];

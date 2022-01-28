@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {StudyProgramDisplayComponent} from "./study-program-display/study-program-display.component";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
@@ -28,20 +28,21 @@ import {MatSelectModule} from "@angular/material/select";
     ContactSupportComponent,
     DialogContactSupportComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    MatExpansionModule,
-    MatCardModule,
-    MatButtonModule,
-    MatListModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    MatDialogModule,
-    MatSelectModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        MatExpansionModule,
+        MatCardModule,
+        MatButtonModule,
+        MatListModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatInputModule,
+        MatDialogModule,
+        MatSelectModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
