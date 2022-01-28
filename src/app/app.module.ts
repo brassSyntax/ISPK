@@ -14,13 +14,19 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
+import { ContactSupportComponent } from './contact-support/contact-support.component';
+import { DialogContactSupportComponent } from './dialog-contact-support/dialog-contact-support.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
     AppComponent,
     StudyProgramDisplayComponent,
     ReviewDisplayComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    ContactSupportComponent,
+    DialogContactSupportComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +38,9 @@ import {MatInputModule} from "@angular/material/input";
     MatListModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
