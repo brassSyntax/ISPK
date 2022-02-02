@@ -1,7 +1,9 @@
 import {Review} from "./review";
 
 export interface StudyProgram {
-  id: number;
+  id: string;
   name: string;
+  description: string;
   reviews?: Review[];
 }
+

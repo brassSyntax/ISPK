@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, SimpleChanges} from '@angular/core';
 import { StudyProgram } from "../studyProgram";
 import {REVIEWS, STUDY_PROGRAMS} from "../mock-data";
 import {Review} from "../review";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {AddStudyProgramComponent} from "../add-study-program/add-study-program.component";
 
 @Component({
   selector: 'app-study-program-display',
@@ -9,10 +11,26 @@ import {Review} from "../review";
   styleUrls: ['./study-program-display.component.css']
 })
 export class StudyProgramDisplayComponent implements OnInit {
-  studyPrograms: StudyProgram[] = STUDY_PROGRAMS;
-  reviews: Review[] = REVIEWS;
+  studyPrograms: StudyProgram[] = [];
+  reviews: Review[] = [];
 
-  constructor() { }
+  constructor(public dialog: MatDialog) {
+    let temp = localStorage.getItem('study_programs');
+    if(temp) {
+      this.studyPrograms = JSON.parse(temp);
+    }else {
+      this.studyPrograms = STUDY_PROGRAMS;
+      localStorage.setItem('study_programs', JSON.stringify(this.studyPrograms));
+    }
+
+    let temp2 = localStorage.getItem('reviews');
+    if(temp2) {
+      this.reviews = JSON.parse(temp2);
+    }else {
+      this.reviews = REVIEWS;
+      localStorage.setItem('reviews', JSON.stringify(this.reviews));
+    }
+  }
 
   isReviewsEmpty(index: number): boolean {
     let revs = this.studyPrograms[index].reviews;
@@ -22,8 +40,18 @@ export class StudyProgramDisplayComponent implements OnInit {
 
   ngOnInit(): void {
     this.studyPrograms.forEach(program => {
-      program.reviews = this.reviews.filter(review => review.key === program.id);
+      program.reviews = this.reviews.filter(review => review.key.toString() === program.id);
     });
   }
+
+  addStudyProgram(){
+    this.dialog.open(AddStudyProgramComponent);
+  }
+
+  ngOnChanges(changes: SimpleChanges){
+
+  }
+
+
 
 }
