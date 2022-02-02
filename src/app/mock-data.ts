@@ -1,6 +1,6 @@
 import { StudyProgram } from "./studyProgram";
 import {Review} from "./review";
-import {Login} from "./login";
+import {User} from "./user";
 
 export const STUDY_PROGRAMS: StudyProgram[] = [
   { id: 1, name: 'Bioengineering' },
@@ -18,8 +18,25 @@ export const REVIEWS: Review[] = [
   { id: 3, key: 2, content: 'Is  ok'}
 ];
 
-export const LOGIN: Login[] = [
-  { id: 1, login: "admin", password: "admin"},
-  { id: 1, login: "student", password: "student"},
-  { id: 1, login: "uni", password: "uni"},
-];
+export const MOCK_USERS: User[] = [
+  {
+    id: '1',
+    username: 'admin',
+    password: 'admin',
+    firstName: 'Admin',
+    lastName: 'Adminaitis',
+    email: 'admin@vilniustech.lt',
+    role: 'admin',
+    token: 'asdasdasdasd'
+  },
+  {
+    id: '2',
+    username: 'student',
+    password: 'student',
+    firstName: 'Student',
+    lastName: 'Studentaitis',
+    email: 'student@vilniustech.lt',
+    role: 'student',
+    token: 'sdsdsdsdsdsdsd'
+  }
+]

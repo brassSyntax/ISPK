@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {ReviewInputFormComponent} from "./review-input-form/review-input-form.component";
 import {MatDialog} from "@angular/material/dialog";
+import {AccountService} from "./services/account.service";
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,19 @@ import {MatDialog} from "@angular/material/dialog";
 export class AppComponent {
   title = 'ISPK';
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, private account: AccountService) {
+    //this.debugAccountService();
+  }
+
+  // TODO: remove this once not needed
+  private debugAccountService() {
+    this.account.login('admin', 'admin')
+      .subscribe(x => {
+        console.log(x);
+        console.log('logging in...')
+
+        this.account.logout();
+      });
   }
 
   reviewButtonClick() {
