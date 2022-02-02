@@ -21,6 +21,8 @@ import {MatIconModule} from "@angular/material/icon";
 import { ContactSupportComponent } from './contact-support/contact-support.component';
 import { DialogContactSupportComponent } from './dialog-contact-support/dialog-contact-support.component';
 import {MatSelectModule} from "@angular/material/select";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {fakeBackendProvider} from "./services/fake-backend-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -47,9 +49,14 @@ import {MatSelectModule} from "@angular/material/select";
     MatInputModule,
     MatToolbarModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+
+    // fake backend. Remove this if using real one
+    fakeBackendProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
