@@ -23,6 +23,7 @@ import { DialogContactSupportComponent } from './dialog-contact-support/dialog-c
 import {MatSelectModule} from "@angular/material/select";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {fakeBackendProvider} from "./services/fake-backend-interceptor.service";
+import {IonicStorageModule} from "@ionic/storage-angular";
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import {fakeBackendProvider} from "./services/fake-backend-interceptor.service";
     MatToolbarModule,
     MatIconModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    IonicStorageModule.forRoot()
   ],
   providers: [
 

@@ -33,10 +33,8 @@ export class AppComponent {
       // width: '640px'
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
-    });
-
-    //dialogRef.close();
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log('Review closed');
+    // })
   }
 }

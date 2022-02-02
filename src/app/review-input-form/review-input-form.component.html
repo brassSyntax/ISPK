@@ -1,10 +1,12 @@
 <h2 mat-dialog-title>Review</h2>
 <p class="mat-typography" *ngIf="programName.length > 0">{{programName}}</p>
 
-<form class="review-form">
+<form (ngSubmit)="onSubmit()" class="review-form" #reviewForm="ngForm">
   <mat-form-field class="review-content" appearance="fill">
     <mat-label>Leave feedback</mat-label>
-    <textarea class="review-text-area" rows="10" type="text" matInput></textarea>
+    <textarea class="review-text-area" rows="10" type="text" matInput [(ngModel)]="reviewContent" name="reviewContent"
+              required minlength="40"
+    ></textarea>
   </mat-form-field>
 </form>
 
@@ -12,5 +14,6 @@
 <!--suppress HtmlDeprecatedAttribute -->
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close="true">Cancel</button>
-  <button mat-raised-button color="primary" (click)="closeDialog()">Submit</button>
+  <button mat-raised-button color="primary" type="submit"
+  [disabled]="!reviewForm.form.valid" (click)="onSubmit()">Submit</button>
 </mat-dialog-actions>
