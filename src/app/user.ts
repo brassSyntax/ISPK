@@ -1,3 +1,5 @@
+import {StudyProgram} from "./studyProgram";
+
 export interface User {
   id: string,
   username: string,
@@ -6,5 +8,6 @@ export interface User {
   lastName: string,
   email: string,
   role: string,
+  studyProgram?: StudyProgram,
   token: string
 }

@@ -1,3 +1,4 @@
+import { Component, OnInit } from '@angular/core';
 import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
 import { StudyProgram } from "../studyProgram";
 import {REVIEWS, STUDY_PROGRAMS} from "../mock-data";
@@ -35,6 +36,7 @@ export class StudyProgramDisplayComponent implements OnInit {
       localStorage.setItem('reviews', JSON.stringify(this.reviews));
     }
   }
+
 
   isReviewsEmpty(index: number): boolean {
     let revs = this.studyPrograms[index].reviews;
