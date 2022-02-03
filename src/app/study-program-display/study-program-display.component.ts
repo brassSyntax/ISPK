@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
 import { StudyProgram } from "../studyProgram";
 import {REVIEWS, STUDY_PROGRAMS} from "../mock-data";
 import {Review} from "../review";
