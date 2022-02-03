@@ -53,8 +53,9 @@ export class ReviewInputFormComponent implements OnInit {
         author: this.currentUser,
         status: ReviewStatus.PENDING
       })
+      console.log(temp);
 
-      //localStorage.setItem('reviews', )
+      localStorage.setItem('reviews', JSON.stringify(temp));
     })
 
     // this.dialogRef.afterClosed().subscribe(result => {
