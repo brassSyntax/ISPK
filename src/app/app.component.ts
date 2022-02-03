@@ -18,8 +18,15 @@ export class AppComponent {
 
     this.account.user
       .pipe(map(() => {
-        this.isUserStudent = true;
-      }));
+        if(this.account.userValue?.role === 'student') {
+          this.isUserStudent = true;
+          console.log(this.isUserStudent);
+        }
+        else {
+          this.isUserStudent = false;
+        }
+      }))
+      .subscribe();
   }
 
   // TODO: remove this once not needed
