@@ -25,7 +25,6 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {fakeBackendProvider} from "./services/fake-backend-interceptor.service";
 import {IonicStorageModule} from "@ionic/storage-angular";
 import { AddStudyProgramComponent } from './add-study-program/add-study-program.component';
-import { EditStudyProgramComponent } from './edit-study-program/edit-study-program.component';
 
 @NgModule({
   declarations: [
@@ -37,8 +36,7 @@ import { EditStudyProgramComponent } from './edit-study-program/edit-study-progr
     LoginFormComponent,
     ContactSupportComponent,
     DialogContactSupportComponent,
-    AddStudyProgramComponent,
-    EditStudyProgramComponent
+    AddStudyProgramComponent
   ],
   imports: [
     BrowserModule,

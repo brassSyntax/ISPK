@@ -34,6 +34,7 @@ export class AddStudyProgramComponent implements OnInit {
 
     this.studyPrograms.push(objektas);
     localStorage.setItem('study_programs', JSON.stringify(this.studyPrograms));
+    console.log(objektas);
   }
 
 }

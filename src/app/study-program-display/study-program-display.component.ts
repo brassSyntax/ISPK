@@ -14,6 +14,7 @@ export class StudyProgramDisplayComponent implements OnInit {
   studyPrograms: StudyProgram[] = [];
   reviews: Review[] = [];
   selectedIndex = 0;
+
   constructor(public dialog: MatDialog) {
     let temp = localStorage.getItem('study_programs');
     if(temp) {
@@ -32,11 +33,11 @@ export class StudyProgramDisplayComponent implements OnInit {
     }
   }
 
-  /*isReviewsEmpty(index: number): boolean {
+  isReviewsEmpty(index: number): boolean {
     let revs = this.studyPrograms[index].reviews;
 
     return (typeof revs === undefined || revs!.length <= 0);
-  }*/
+  }
 
   ngOnInit(): void {
     this.studyPrograms.forEach(program => {
@@ -49,13 +50,16 @@ export class StudyProgramDisplayComponent implements OnInit {
   }
 
   deleteStudyProgram(i:number){
-    this.selectedIndex=i;
-    let temp = localStorage.getItem('study_programs');
-    if(temp) {
-      this.studyPrograms = JSON.parse(temp);
+    this.selectedIndex = i ;
+    let temp2 = localStorage.getItem('study_programs');
+    if(temp2) {
+      this.studyPrograms = JSON.parse(temp2);
     }
-    this.studyPrograms.splice(i,1);
+    this.studyPrograms.splice(this.selectedIndex,1);
     localStorage.setItem('study_programs', JSON.stringify(this.studyPrograms));
+
   }
+
+
 
 }
