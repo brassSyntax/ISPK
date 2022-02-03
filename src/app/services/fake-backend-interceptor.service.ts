@@ -8,9 +8,11 @@ import {
   HttpResponse
 } from "@angular/common/http";
 import {delay, dematerialize, materialize, mergeMap, Observable, of, throwError} from "rxjs";
-import {MOCK_USERS} from "../mock-data";
+import {MOCK_USERS, REVIEWS, STUDY_PROGRAMS} from "../mock-data";
 
 let users: any[] = [];
+let study_programs: any[] = [];
+let reviews: any[] = [];
 
 @Injectable({
   providedIn: 'root'
@@ -19,13 +21,30 @@ export class FakeBackendInterceptorService implements HttpInterceptor{
 
   constructor() {
     let temp = localStorage.getItem('users');
-
     if(temp) {
       users = JSON.parse(temp);
     }
     else {
       users = MOCK_USERS;
       localStorage.setItem('users', JSON.stringify(users));
+    }
+
+    let temp2 = localStorage.getItem('study_programs');
+    if(temp2) {
+      study_programs = JSON.parse(temp2);
+    }
+    else {
+      study_programs = STUDY_PROGRAMS;
+      localStorage.setItem('study_programs', JSON.stringify(study_programs));
+    }
+
+    let temp3 = localStorage.getItem('reviews');
+    if(temp3) {
+      reviews = JSON.parse(temp3);
+    }
+    else {
+      reviews = REVIEWS;
+      localStorage.setItem('reviews', JSON.stringify(reviews));
     }
   }
 

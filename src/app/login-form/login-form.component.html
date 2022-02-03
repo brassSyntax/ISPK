@@ -1,22 +1,24 @@
 <mat-card>
   <mat-card-title>Login form</mat-card-title>
   <mat-card-subtitle>Please enter your login credentials</mat-card-subtitle>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Enter your username</mat-label>
-    <input matInput placeholder="Username">
-    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    <mat-hint>Student code</mat-hint>
-  </mat-form-field>
-  <p>
+  <form (ngSubmit)="onSubmit()" class="login-form" #login="ngForm">
     <mat-form-field appearance="fill">
-      <mat-label>Enter your password</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'">
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-              [attr.aria-pressed]="hide">
-        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </button>
+      <mat-label>Enter your username</mat-label>
+      <input matInput [(ngModel)]="usernameInput" name="usernameInput" placeholder="Username">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Student code</mat-hint>
     </mat-form-field>
-  </p>
-  <button mat-raised-button>LOGIN</button>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [(ngModel)]="passwordInput" name="passwordInput" [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </p>
+  </form>
+
+  <button color="primary" [disabled]="!login.form.valid" (click)="onSubmit() " mat-raised-button>LOGIN</button>
 </mat-card>

@@ -24,6 +24,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {fakeBackendProvider} from "./services/fake-backend-interceptor.service";
 import {IonicStorageModule} from "@ionic/storage-angular";
+import { AddStudyProgramComponent } from './add-study-program/add-study-program.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {IonicStorageModule} from "@ionic/storage-angular";
     ReviewDisplayComponent,
     LoginFormComponent,
     ContactSupportComponent,
-    DialogContactSupportComponent
+    DialogContactSupportComponent,
+    AddStudyProgramComponent
   ],
   imports: [
     BrowserModule,

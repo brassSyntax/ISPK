@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Add study program</h2>
+
+<form class="review-form" #addStudyProgramForm="ngForm">
+  <mat-form-field class="review-content" appearance="fill">
+    <mat-label>Study program ID</mat-label>
+    <input [(ngModel)]="programID" class="review-text-area" rows="10" type="text" matInput name="reviewContent">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="review-content" appearance="fill">
+    <mat-label>Study program name</mat-label>
+    <input [(ngModel)]="programName" class="review-text-area" rows="10" type="text" matInput name="reviewContent">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="review-content" appearance="fill">
+    <mat-label>Study program description</mat-label>
+    <textarea class="review-text-area" rows="10" type="text" matInput [(ngModel)]="programDescription" name="reviewContent"
+              required minlength="10"></textarea>
+  </mat-form-field>
+</form>
+<!--suppress HtmlDeprecatedAttribute -->
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close="true">Cancel</button>
+  <button mat-raised-button mat-dialog-close="true" color="primary" type="submit" (click)="onSubmit()"
+          [disabled]="!addStudyProgramForm.form.valid ">Submit
+  </button>
+</mat-dialog-actions>

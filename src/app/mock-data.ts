@@ -2,14 +2,17 @@ import { StudyProgram } from "./studyProgram";
 import {Review} from "./review";
 import {User} from "./user";
 
+const fakeDescription: string = 'Ipsum sapiente enim possimus assumenda veniam doloribus occaecati. Doloremque qui iusto dolores ipsam laboriosam voluptatum eius soluta. Quaerat beatae ea perferendis alias aliquid voluptatum. Qui assumenda et aspernatur quo sed explicabo. Aut voluptate error suscipit.';
+
+
 export const STUDY_PROGRAMS: StudyProgram[] = [
-  { id: 1, name: 'Bioengineering' },
-  { id: 2, name: 'Data Analysis Technologies' },
-  { id: 3, name: 'Information Systems' },
-  { id: 4, name: 'Information Technologies' },
-  { id: 5, name: 'Mathematics of Modern Technologies'},
-  { id: 6, name: 'Multimedia Design'},
-  { id: 7, name: 'Software Engineering'}
+  { id: '1', name: 'Bioengineering', description: fakeDescription },
+  { id: '2', name: 'Data Analysis Technologies', description: fakeDescription  },
+  { id: '3', name: 'Information Systems', description: fakeDescription  },
+  { id: '4', name: 'Information Technologies', description: fakeDescription  },
+  { id: '5', name: 'Mathematics of Modern Technologies', description: fakeDescription },
+  { id: '6', name: 'Multimedia Design', description: fakeDescription },
+  { id: '7', name: 'Software Engineering', description: 'labadiena' }
 ];
 
 export const REVIEWS: Review[] = [
