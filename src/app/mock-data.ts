@@ -1,5 +1,5 @@
 import { StudyProgram } from "./studyProgram";
-import {Review} from "./review";
+import {Review, ReviewStatus} from "./review";
 import {User} from "./user";
 
 const fakeDescription: string = 'Ipsum sapiente enim possimus assumenda veniam doloribus occaecati. Doloremque qui iusto dolores ipsam laboriosam voluptatum eius soluta. Quaerat beatae ea perferendis alias aliquid voluptatum. Qui assumenda et aspernatur quo sed explicabo. Aut voluptate error suscipit.';
@@ -16,9 +16,57 @@ export const STUDY_PROGRAMS: StudyProgram[] = [
 ];
 
 export const REVIEWS: Review[] = [
-  { id: 1, key: 1, content: 'I like very good, yes'},
-  { id: 2, key: 1, content: 'I don\'t like very bad, no'},
-  { id: 3, key: 2, content: 'Is  ok'}
+  {
+    id: 1,
+    key: 1,
+    content: 'I like very good, yes',
+    author: {
+      id: '20142014',
+      username: 'Bobby',
+      password: 'Bobby',
+      firstName: 'Bob',
+      lastName: 'RectAngular',
+      email: 'bobbyB@gmail.com',
+      role: 'student',
+      studyProgram: STUDY_PROGRAMS[6],
+      token: ''
+    },
+    status: ReviewStatus.APPROVED
+  },
+  {
+    id: 2,
+    key: 1,
+    content: 'I don\'t like very bad, no',
+    author: {
+      id: '20122012',
+      username: 'jonas123',
+      password: 'jonas123',
+      firstName: 'Jonas',
+      lastName: 'Jonauskas',
+      email: 'jonas@gmail.com',
+      role: 'student',
+      studyProgram: STUDY_PROGRAMS[2],
+      token: ''
+    },
+    status: ReviewStatus.REJECTED
+  },
+  {
+    id: 3,
+    key: 2,
+    content: 'Is  ok',
+    author: {
+      id: '20132013',
+      username: 'deanearwicker',
+      password: 'deanearwicker',
+      firstName: 'Steve',
+      lastName: 'Fox',
+      email: 'stevefox@gmail.com',
+      role: 'student',
+      studyProgram: STUDY_PROGRAMS[5],
+      token: ''
+    },
+    status: ReviewStatus.PENDING
+  },
 ];
 
 export const MOCK_USERS: User[] = [

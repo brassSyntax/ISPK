@@ -3,6 +3,7 @@ import {ReviewInputFormComponent} from "./review-input-form/review-input-form.co
 import {MatDialog} from "@angular/material/dialog";
 import {AccountService} from "./services/account.service";
 import {map} from "rxjs";
+import {Review} from "./review";
 
 @Component({
   selector: 'app-root',
@@ -12,9 +13,12 @@ import {map} from "rxjs";
 export class AppComponent {
   title = 'ISPK';
   isUserStudent: boolean = false;
+  reviews?: Review[];
 
   constructor(public dialog: MatDialog, public account: AccountService) {
     //this.debugAccountService();
+
+    this.reviews = JSON.parse(localStorage.getItem('reviews') || '{}');
 
     this.account.user
       .pipe(map(() => {

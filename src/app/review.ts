@@ -1,8 +1,16 @@
+import {User} from "./user";
+
 export interface Review {
   id: number,
   key: number,
   content: string,
-  //author: string // TODO: switch to User type later?
+  author?: User,
   //rating: number // TODO: switch to RatingValue later?
-  //status: string // TODO: switch to ReviewStatus later?
+  status: ReviewStatus
+}
+
+export const enum ReviewStatus {
+  APPROVED,
+  PENDING,
+  REJECTED
 }

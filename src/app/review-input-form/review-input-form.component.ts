@@ -4,7 +4,8 @@ import {StorageService} from "../services/storage.service";
 import {AccountService} from "../services/account.service";
 import {map} from "rxjs";
 import {StudyProgram} from "../studyProgram";
-import {Review} from "../review";
+import {Review, ReviewStatus} from "../review";
+import {User} from "../user";
 
 @Component({
   selector: 'app-review-input-form',
@@ -16,12 +17,14 @@ export class ReviewInputFormComponent implements OnInit {
   programName?: string = '';
   programKey?: string = '';
   reviewContent: string = '';
+  currentUser?: User;
 
   @Input() programId = 1;
 
   constructor(public dialogRef: MatDialogRef<ReviewInputFormComponent>,
               private account: AccountService,
               private storage: StorageService) {
+    this.currentUser = this.account.userValue || undefined;
     this.account.user
       .pipe(map(x => {
         if(x) {
@@ -47,6 +50,8 @@ export class ReviewInputFormComponent implements OnInit {
         id: temp.length + 1,
         key: parseInt(this.programKey || ''),
         content: this.reviewContent,
+        author: this.currentUser,
+        status: ReviewStatus.PENDING
       })
 
       //localStorage.setItem('reviews', )

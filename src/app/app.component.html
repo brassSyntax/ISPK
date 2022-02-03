@@ -7,6 +7,14 @@
 <app-login-form></app-login-form>
 <app-study-program-display></app-study-program-display>
 
+<mat-card>
+  <mat-card-title>Reviews</mat-card-title>
+  <mat-card-content>
+    <app-review-display [reviews]="this.reviews"></app-review-display>
+  </mat-card-content>
+</mat-card>
+
+
 <!--Review dialog button-->
 <!--<button mat-raised-button (click)="reviewButtonClick()">Review</button>-->
 

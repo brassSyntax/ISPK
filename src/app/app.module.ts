@@ -26,6 +26,7 @@ import {fakeBackendProvider} from "./services/fake-backend-interceptor.service";
 import {IonicStorageModule} from "@ionic/storage-angular";
 import { AddStudyProgramComponent } from './add-study-program/add-study-program.component';
 import { EditStudyProgramComponent } from './edit-study-program/edit-study-program.component';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
 
 @NgModule({
   declarations: [
@@ -40,24 +41,25 @@ import { EditStudyProgramComponent } from './edit-study-program/edit-study-progr
     AddStudyProgramComponent,
     EditStudyProgramComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    MatExpansionModule,
-    MatCardModule,
-    MatButtonModule,
-    MatListModule,
-    MatDialogModule,
-    AppRoutingModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatSelectModule,
-    HttpClientModule,
-    IonicStorageModule.forRoot()
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        MatExpansionModule,
+        MatCardModule,
+        MatButtonModule,
+        MatListModule,
+        MatDialogModule,
+        AppRoutingModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatSelectModule,
+        HttpClientModule,
+        IonicStorageModule.forRoot(),
+        MatButtonToggleModule
+    ],
   providers: [
 
     // fake backend. Remove this if using real one
