@@ -1,7 +1,7 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import { StudyProgram } from "../studyProgram";
+import {Component, OnInit} from '@angular/core';
+import {StudyProgram} from "../studyProgram";
 import {REVIEWS, STUDY_PROGRAMS} from "../mock-data";
-import {Review} from "../review";
+import {Review, ReviewStatus} from "../review";
 import {MatDialog} from "@angular/material/dialog";
 import {AddStudyProgramComponent} from "../add-study-program/add-study-program.component";
 import {EditStudyProgramComponent} from "../edit-study-program/edit-study-program.component";
@@ -69,7 +69,8 @@ export class StudyProgramDisplayComponent implements OnInit {
 
   ngOnInit(): void {
     this.studyPrograms.forEach(program => {
-      program.reviews = this.reviews.filter(review => review.key.toString() === program.id);
+      program.reviews = this.reviews.filter(review => review.key.toString() === program.id
+      && (review.status === ReviewStatus.APPROVED || this.isUserAdmin));
     });
 
   }
