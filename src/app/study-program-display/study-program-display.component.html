@@ -10,7 +10,7 @@
       <mat-panel-description> {{program.id}} </mat-panel-description>
     </mat-expansion-panel-header>
     <button mat-raised-button color="primary">Edit</button>
-    <button mat-raised-button color="warn">Delete</button>
+    <button mat-raised-button color="warn" (click)="deleteStudyProgram(i)">Delete</button>
     <mat-card>
 
       <mat-card-title>About</mat-card-title>
@@ -22,7 +22,7 @@
       </mat-card-actions>
     </mat-card>
 
-    <mat-card *ngIf="!isReviewsEmpty(i)">
+    <mat-card>
       <mat-card-title>Reviews</mat-card-title>
       <app-review-display [reviews]="program.reviews"></app-review-display>
     </mat-card>

@@ -22,10 +22,6 @@ export class AddStudyProgramComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit() {
-    console.log('submitted');
-    console.log(this.programID);
-    console.log(this.programName);
-    console.log(this.programDescription);
     let temp2 = localStorage.getItem('study_programs');
     if(temp2) {
       this.studyPrograms = JSON.parse(temp2);
@@ -38,7 +34,6 @@ export class AddStudyProgramComponent implements OnInit {
 
     this.studyPrograms.push(objektas);
     localStorage.setItem('study_programs', JSON.stringify(this.studyPrograms));
-    console.log(objektas);
   }
 
 }
