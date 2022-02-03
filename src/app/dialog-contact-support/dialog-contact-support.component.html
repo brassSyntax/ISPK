@@ -1,5 +1,5 @@
 <h2 mat-dialog-title>Contact Us</h2>
-<mat-dialog-content class="mat-typography">
+<mat-dialog-content class="mat-typography" >
   <p>Send us email to email@gmail.com or fill the following form:</p>
   <p>
     <mat-form-field appearance="fill">
@@ -7,16 +7,21 @@
       <input matInput>
     </mat-form-field>
   </p>
-
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Your name</mat-label>
+      <input [(ngModel)]="toName" matInput>
+    </mat-form-field>
+  </p>
   <p>
     <mat-form-field appearance="fill">
       <mat-label>Your message</mat-label>
-      <textarea matInput></textarea>
+      <textarea [(ngModel)]="message" matInput></textarea>
     </mat-form-field>
   </p>
-
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Send</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="sendEmail($event)">Send</button>
 </mat-dialog-actions>
+

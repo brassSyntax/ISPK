@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-title>Login form</mat-card-title>
   <mat-card-subtitle>Please enter your login credentials</mat-card-subtitle>
-  <form (ngSubmit)="onSubmit()" class="login-form" #login="ngForm">
+  <form (ngSubmit)="onSubmit(login)" class="login-form" #login="ngForm">
     <mat-form-field appearance="fill">
       <mat-label>Enter your username</mat-label>
       <input matInput [(ngModel)]="usernameInput" name="usernameInput" placeholder="Username">
@@ -20,5 +20,6 @@
     </p>
   </form>
 
-  <button color="primary" [disabled]="!login.form.valid" (click)="onSubmit() " mat-raised-button>LOGIN</button>
+  <button color="primary" [disabled]="!login.form.valid" (click)="onSubmit(login)" mat-raised-button>LOGIN</button>
+  <button color="warn" (click)="onLogout() " mat-raised-button>LOGOUT</button>
 </mat-card>

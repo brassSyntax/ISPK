@@ -13,6 +13,7 @@ export class AppComponent {
   title = 'ISPK';
   isUserStudent: boolean = false;
 
+
   constructor(public dialog: MatDialog, public account: AccountService) {
     //this.debugAccountService();
 
@@ -27,6 +28,8 @@ export class AppComponent {
         }
       }))
       .subscribe();
+
+
   }
 
   // TODO: remove this once not needed

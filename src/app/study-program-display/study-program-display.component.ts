@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import { StudyProgram } from "../studyProgram";
 import {REVIEWS, STUDY_PROGRAMS} from "../mock-data";
 import {Review} from "../review";
 import {MatDialog} from "@angular/material/dialog";
 import {AddStudyProgramComponent} from "../add-study-program/add-study-program.component";
 import {EditStudyProgramComponent} from "../edit-study-program/edit-study-program.component";
+import {map} from "rxjs";
+import {AccountService} from "../services/account.service";
+import {StorageService} from "../services/storage.service";
 
 @Component({
   selector: 'app-study-program-display',
@@ -15,10 +18,24 @@ export class StudyProgramDisplayComponent implements OnInit {
   studyPrograms: StudyProgram[] = [];
   reviews: Review[] = [];
   selectedIndex = 0;
+  isUserAdmin: boolean = false;
+
+  listData=[];
 
 
-
-  constructor(public dialog: MatDialog, public object:EditStudyProgramComponent) {
+  constructor(public dialog: MatDialog, public object:EditStudyProgramComponent, public account: AccountService,
+              public storage:StorageService) {
+    this.account.user
+      .pipe(map(() => {
+        if(this.account.userValue?.role === 'admin') {
+          this.isUserAdmin = true;
+          console.log(this.isUserAdmin);
+        }
+        else {
+          this.isUserAdmin = false;
+        }
+      }))
+      .subscribe();
     let temp = localStorage.getItem('study_programs');
     if(temp) {
       this.studyPrograms = JSON.parse(temp);
@@ -34,8 +51,15 @@ export class StudyProgramDisplayComponent implements OnInit {
       this.reviews = REVIEWS;
       localStorage.setItem('reviews', JSON.stringify(this.reviews));
     }
+
+
+    this.loadData();
   }
 
+  async loadData(){
+    this.listData = await this.storage.get('key');
+    console.log(this.listData);
+  }
 
   isReviewsEmpty(index: number): boolean {
     let revs = this.studyPrograms[index].reviews;
@@ -47,6 +71,7 @@ export class StudyProgramDisplayComponent implements OnInit {
     this.studyPrograms.forEach(program => {
       program.reviews = this.reviews.filter(review => review.key.toString() === program.id);
     });
+
   }
 
   addStudyProgram(){

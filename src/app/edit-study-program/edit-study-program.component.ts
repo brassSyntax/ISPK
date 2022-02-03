@@ -12,7 +12,7 @@ export class EditStudyProgramComponent implements OnInit  {
   programName: string = '';
   programDescription: string = '';
   programID: string = '';
-  arrayEl = 15;
+  arrayEl:number = 15;
 
   constructor() {}
 
