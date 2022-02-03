@@ -1,6 +1,6 @@
 <h2>
   Study Programs
-  <button mat-raised-button (click)="addStudyProgram()">Add</button>
+  <button mat-raised-button *ngIf="isUserAdmin" (click)="addStudyProgram()">Add</button>
 </h2>
 
 <mat-accordion class="example-headers-align">
@@ -9,8 +9,8 @@
       <mat-panel-title> {{program.name}} </mat-panel-title>
       <mat-panel-description> {{program.id}} </mat-panel-description>
     </mat-expansion-panel-header>
-    <button mat-raised-button color="primary" (click)="editStudyProgram(i)">Edit</button>
-    <button mat-raised-button color="warn" (click)="deleteStudyProgram(i)">Delete</button>
+    <button mat-raised-button color="primary" *ngIf="isUserAdmin" (click)="editStudyProgram(i)">Edit</button>
+    <button mat-raised-button color="warn" *ngIf="isUserAdmin" (click)="deleteStudyProgram(i)">Delete</button>
     <mat-card>
 
       <mat-card-title>About</mat-card-title>

@@ -3,6 +3,7 @@ import {ReviewInputFormComponent} from "./review-input-form/review-input-form.co
 import {MatDialog} from "@angular/material/dialog";
 import {AccountService} from "./services/account.service";
 import {map} from "rxjs";
+import {FakeBackendInterceptorService} from "./services/fake-backend-interceptor.service";
 import {Review} from "./review";
 
 @Component({
@@ -14,6 +15,8 @@ export class AppComponent {
   title = 'ISPK';
   isUserStudent: boolean = false;
   reviews?: Review[];
+  isLoggedIn: boolean = false;
+
 
   constructor(public dialog: MatDialog, public account: AccountService) {
     //this.debugAccountService();
@@ -31,6 +34,7 @@ export class AppComponent {
         }
       }))
       .subscribe();
+
   }
 
   // TODO: remove this once not needed
