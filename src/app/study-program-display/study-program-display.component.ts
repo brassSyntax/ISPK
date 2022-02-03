@@ -1,9 +1,10 @@
-import {Component, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
 import { StudyProgram } from "../studyProgram";
 import {REVIEWS, STUDY_PROGRAMS} from "../mock-data";
 import {Review} from "../review";
-import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {MatDialog} from "@angular/material/dialog";
 import {AddStudyProgramComponent} from "../add-study-program/add-study-program.component";
+import {EditStudyProgramComponent} from "../edit-study-program/edit-study-program.component";
 
 @Component({
   selector: 'app-study-program-display',
@@ -15,7 +16,9 @@ export class StudyProgramDisplayComponent implements OnInit {
   reviews: Review[] = [];
   selectedIndex = 0;
 
-  constructor(public dialog: MatDialog) {
+
+
+  constructor(public dialog: MatDialog, public object:EditStudyProgramComponent) {
     let temp = localStorage.getItem('study_programs');
     if(temp) {
       this.studyPrograms = JSON.parse(temp);
@@ -57,7 +60,11 @@ export class StudyProgramDisplayComponent implements OnInit {
     }
     this.studyPrograms.splice(this.selectedIndex,1);
     localStorage.setItem('study_programs', JSON.stringify(this.studyPrograms));
+  }
 
+  editStudyProgram(i:number){
+    this.dialog.open(EditStudyProgramComponent);
+    this.object.setArrayEl(i);
   }
 
 

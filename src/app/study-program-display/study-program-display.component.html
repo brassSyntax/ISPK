@@ -9,7 +9,7 @@
       <mat-panel-title> {{program.name}} </mat-panel-title>
       <mat-panel-description> {{program.id}} </mat-panel-description>
     </mat-expansion-panel-header>
-    <button mat-raised-button color="primary">Edit</button>
+    <button mat-raised-button color="primary" (click)="editStudyProgram(i)">Edit</button>
     <button mat-raised-button color="warn" (click)="deleteStudyProgram(i)">Delete</button>
     <mat-card>
 
