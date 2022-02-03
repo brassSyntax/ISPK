@@ -14,7 +14,6 @@ export class StudyProgramDisplayComponent implements OnInit {
   studyPrograms: StudyProgram[] = [];
   reviews: Review[] = [];
   selectedIndex = 0;
-  selectedIndex = 0;
 
   constructor(public dialog: MatDialog) {
     let temp = localStorage.getItem('study_programs');

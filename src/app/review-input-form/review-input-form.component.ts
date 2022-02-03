@@ -14,7 +14,7 @@ import {Review} from "../review";
 export class ReviewInputFormComponent implements OnInit {
 
   programName?: string = '';
-  programKey?: number = 0;
+  programKey?: string = '';
   reviewContent: string = '';
 
   @Input() programId = 1;
@@ -45,7 +45,7 @@ export class ReviewInputFormComponent implements OnInit {
       let temp: Review[] = JSON.parse(localStorage.getItem('reviews') || '{}');
       temp.push({
         id: temp.length + 1,
-        key: this.programKey || 0,
+        key: parseInt(this.programKey || ''),
         content: this.reviewContent,
       })
 
