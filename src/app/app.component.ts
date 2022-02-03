@@ -3,6 +3,7 @@ import {ReviewInputFormComponent} from "./review-input-form/review-input-form.co
 import {MatDialog} from "@angular/material/dialog";
 import {AccountService} from "./services/account.service";
 import {map} from "rxjs";
+import {FakeBackendInterceptorService} from "./services/fake-backend-interceptor.service";
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ import {map} from "rxjs";
 export class AppComponent {
   title = 'ISPK';
   isUserStudent: boolean = false;
+  isLoggedIn: boolean = false;
 
 
   constructor(public dialog: MatDialog, public account: AccountService) {
@@ -28,7 +30,6 @@ export class AppComponent {
         }
       }))
       .subscribe();
-
 
   }
 
