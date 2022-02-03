@@ -12,6 +12,8 @@ export class StudyProgramDisplayComponent implements OnInit {
   studyPrograms: StudyProgram[] = STUDY_PROGRAMS;
   reviews: Review[] = REVIEWS;
 
+  selectedIndex = 0;
+
   constructor() { }
 
   isReviewsEmpty(index: number): boolean {

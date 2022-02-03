@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {ReviewInputFormComponent} from "./review-input-form/review-input-form.component";
 import {MatDialog} from "@angular/material/dialog";
 import {AccountService} from "./services/account.service";
+import {map} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -10,9 +11,15 @@ import {AccountService} from "./services/account.service";
 })
 export class AppComponent {
   title = 'ISPK';
+  isUserStudent: boolean = false;
 
-  constructor(public dialog: MatDialog, private account: AccountService) {
+  constructor(public dialog: MatDialog, public account: AccountService) {
     //this.debugAccountService();
+
+    this.account.user
+      .pipe(map(() => {
+        this.isUserStudent = true;
+      }));
   }
 
   // TODO: remove this once not needed
