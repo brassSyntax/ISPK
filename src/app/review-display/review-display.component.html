@@ -4,7 +4,7 @@
     <mat-list-item>
       {{review.content}}
       <ng-container>
-        <mat-button-toggle-group>
+        <mat-button-toggle-group *ngIf="isUserAdmin">
           <mat-button-toggle [checked]="getReviewStatus(review)===1" [disabled]="true"
           (click)="setReviewStatus(review,1)">Pending</mat-button-toggle>
           <mat-button-toggle [checked]="getReviewStatus(review)===2"

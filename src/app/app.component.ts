@@ -14,6 +14,7 @@ import {Review} from "./review";
 export class AppComponent {
   title = 'ISPK';
   isUserStudent: boolean = false;
+  isUserAdmin: boolean = false;
   reviews?: Review[];
   isLoggedIn: boolean = false;
 
@@ -25,6 +26,8 @@ export class AppComponent {
 
     this.account.user
       .pipe(map(() => {
+        this.isUserAdmin = this.account.userValue?.role === 'admin';
+
         if(this.account.userValue?.role === 'student') {
           this.isUserStudent = true;
           console.log(this.isUserStudent);
